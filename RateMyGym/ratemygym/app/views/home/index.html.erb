@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RateMyGym</title>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+</head>
+<body class="page-rate-my-gym">
+
+  <!-- Fixed Header with Logout button -->
+  <header class="fixed-header">
+    <div class="logo-section">
+      <%= image_tag 'logo.png', alt: 'RateMyGym Logo', class: 'logo-image' %>
+      <h1 class="header-title">RateMyGym</h1>
+    </div>
+    <% if current_user %>
+      <%= link_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+    <% end %>
+  </header>
+
+  <main>
+    <!-- Clickable images to access gyms -->
+    <div class="gym-images">
+    <%= link_to image_tag("goodlifefitnessimage.png", alt: "GoodLife Fitness"), gym_path(1) %>
+    <%= link_to image_tag("anytimefitnessimage.jpg", alt: "Anytime Fitness"), gym_path(2) %>
+    <%= link_to image_tag("planetfitnessimage.png", alt: "Planet Fitness"), gym_path(3) %>
+    <%= link_to image_tag("shesfitimage.png"), gym_path(4) %>
+    <%= link_to image_tag("club16image.png", alt: "Club 16"), gym_path(5) %>
+    <%= link_to image_tag("goldsgymimage.jpg", alt: "Gold's Gym"), gym_path(6) %>
+    </div>
+  </main>
+
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+</body>
+</html>

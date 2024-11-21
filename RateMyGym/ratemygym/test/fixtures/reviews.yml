@@ -1,0 +1,11 @@
+one:
+  comment: "Great gym!"
+  rating: 5
+  user_id: 1
+  gym_id: 1 # This must correspond to a valid gym in gyms.yml
+
+two:
+  comment: "Amazing gym!"
+  rating: 4
+  user_id: 2
+  gym_id: 2 # This must correspond to a valid gym in gyms.yml

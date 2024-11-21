@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'gymReviews', media: 'all', 'data-turbo-track': 'reload' %>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Review and Rating System for <%= @gym.name %></title>
+</head>
+<body>
+
+  <!-- Original Review Form -->
+  <div class="wrapper">
+    <div class="container">
+      <!-- New Header section -->
+      <header>
+        <img src="<%= asset_path('logo.png') %>" alt="Description of the image" class="full-width-image">
+        <h1>Gym Reviews for <%= @gym.name %></h1>
+        <p class="text">Leave your reviews for different aspects of the gym below.</p>
+      </header>
+
+      <h3 class="leaveReviewSign">Leave a review</h3>
+
+      <!-- Down below are 5 different sections which display the star ratings -->
+      <%= form_with(model: [@gym, @gym.reviews.new], local: true) do |form| %>
+        <!-- Machines -->
+        <p>Machines & Equipment:</p>
+        <div class="rating">
+          <%= form.hidden_field :machines_rating %>
+          <i class='bx bx-star starMachines'></i>
+          <i class='bx bx-star starMachines'></i>
+          <i class='bx bx-star starMachines'></i>
+          <i class='bx bx-star starMachines'></i>
+          <i class='bx bx-star starMachines'></i>
+        </div>
+
+        <!-- Staff -->
+        <p>Staff:</p>
+        <div class="rating">
+          <%= form.hidden_field :staff_rating %>
+          <i class='bx bx-star starStaff'></i>
+          <i class='bx bx-star starStaff'></i>
+          <i class='bx bx-star starStaff'></i>
+          <i class='bx bx-star starStaff'></i>
+          <i class='bx bx-star starStaff'></i>
+        </div>
+
+        <!-- Location -->
+        <p>Location:</p>
+        <div class="rating">
+          <%= form.hidden_field :location_rating %>
+          <i class='bx bx-star starLocation'></i>
+          <i class='bx bx-star starLocation'></i>
+          <i class='bx bx-star starLocation'></i>
+          <i class='bx bx-star starLocation'></i>
+          <i class='bx bx-star starLocation'></i>
+        </div>
+
+        <!-- Cleanliness -->
+        <p>Cleanliness:</p>
+        <div class="rating">
+          <%= form.hidden_field :clean_rating %>
+          <i class='bx bx-star starClean'></i>
+          <i class='bx bx-star starClean'></i>
+          <i class='bx bx-star starClean'></i>
+          <i class='bx bx-star starClean'></i>
+          <i class='bx bx-star starClean'></i>
+        </div>
+
+        <!-- Gym Atmosphere -->
+        <p>Gym Atmosphere:</p>
+        <div class="rating">
+          <%= form.hidden_field :atmosphere_rating %>
+          <i class='bx bx-star starAsphere'></i>
+          <i class='bx bx-star starAsphere'></i>
+          <i class='bx bx-star starAsphere'></i>
+          <i class='bx bx-star starAsphere'></i>
+          <i class='bx bx-star starAsphere'></i>
+        </div>
+
+        <!-- Review Textarea -->
+        <div class="form-group">
+          <%= form.text_area :comment, placeholder: "Your review..." %>
+        </div>
+
+        <!-- Submit and Cancel Buttons -->
+        <div class="button-group">
+          <%= form.submit "Submit", class: "btn btn-submit" %>
+          <%= link_to "Cancel", gym_path(@gym), class: "btn btn-cancel" %>
+        </div>
+      <% end %>
+
+      <!-- Area to Display Reviews -->
+      <div id="reviews">
+        <h3 class="leaveReviewSign">Reviews:</h3>
+        <div id="reviewsList">
+          <% if @gym.reviews.any? %>
+            <% @gym.reviews.each do |review| %>
+              <div class="review">
+                <strong>Rating:</strong> <%= review.rating %> / 5
+                <p><%= review.comment %></p>
+               
+              </div>
+              <hr>
+            <% end %>
+          <% else %>
+            <p>No reviews yet. Be the first to review this gym!</p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Javascript source code -->
+  <%= javascript_include_tag 'gymReviews', 'data-turbo-track': 'reload' %>
+
+</body>
+</html>

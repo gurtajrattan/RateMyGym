@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  password: "yourpassword"
+
+development:
+  <<: *default
+  database: ratemygym_development
+
+test:
+  <<: *default
+  database: ratemygym_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  url: postgresql://database_rmg_user:8gKdqdYknpLGEMTPFbeQsqfLLS9PqPXw@dpg-css4csq3esus739hmjn0-a/database_rmg # This is the DATABASE_URL from Render

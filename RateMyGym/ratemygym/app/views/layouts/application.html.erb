@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "RateMyGym" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- Include the custom stylesheets -->
+    <% if controller_name == 'sessions' || controller_name == 'users' %>
+      <%= stylesheet_link_tag 'login', media: 'all', 'data-turbo-track': 'reload' %>
+    <% end %>
+
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+  </head>
+
+  <!-- Flash Messages -->
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+    
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+
+    <%= yield %>
+
+    <!-- Include the custom JavaScript files -->
+    <% if controller_name == 'sessions' || controller_name == 'users' %>
+      <%= javascript_include_tag 'login', 'data-turbo-track': 'reload' %>
+    <% end %>
+
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+  </body>
+</html>

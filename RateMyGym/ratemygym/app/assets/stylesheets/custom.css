@@ -1,0 +1,89 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  /* Container for the buttons */
+  .button-container {
+    /* Aligns the buttons horizontally */
+    display: flex;   
+    /* Provides a space between the buttons */           
+    gap: 40px;       
+    /* places the button the right */           
+    justify-content: right;   
+     
+}
+
+button {
+    /* Large button font size */
+    font-size: 30px;     
+    /*  padding for button size */
+    padding: 10px 20px; 
+    /* makes button round */
+    border-radius: 15px;     
+       
+}
+
+  header h1 {
+    text-align: center;
+    font-size: 71px;
+    margin: 40px 0;
+    font-family: sans-serif;
+    color: black;
+  }
+  
+  /* Image container layout */
+  .gym-images {
+    display: flex;
+    justify-content: center;
+    /* Wraps images to a new line so it doesnt go out */
+    flex-wrap: wrap;
+     /* Adds space between images */
+    gap: 30px; 
+    padding: 20px;
+  }
+  
+  /* Style the images */
+  .gym-images a img {
+    /* Size of the images */
+    width: 680px;
+    height: 400px;
+    /* places the image scaled up to size*/
+    object-fit: cover;
+    border: 3px solid #082582;
+    transition: transform 0.4s, border-color 0.3s;
+  }
+  
+  /* Hover effect for images */
+  .gym-images a img:hover {
+    transform: scale(1.10);
+    border-color: #d1a35f;
+    /* Changes border color on hover */
+    border-width: 5px; 
+  }
+
+    /* Styles for the fixed header */
+  .fixed-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.5); /* 50% transparency */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 150px; /* Fixed height of the header */
+  }
+
+  /* Adding padding to the main content to avoid overlapping with the header */
+  .page-rate-my-gym main {
+    padding-top: 150px; /* Adjust according to the height of the header */
+  }
+
+  
+
+  
+
+  
+  
