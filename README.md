@@ -1,6 +1,6 @@
 ### **What our project is about:**
 
-## RateMyGym is a web application where users can provide ratings and comments about local gyms regarding many factors
+RateMyGym is a web application where users can provide ratings and comments about local gyms regarding many factors
 such as price, availability of equipment, location, and general environment. RatingMyGym has been built in collaboration
 with Ruby on Rails but following Object-Oriented guidelines of the MVC architecture. The minimum increased features for 
 security of a login system are implemented, along with a future User Profile page where users will be able to update their
